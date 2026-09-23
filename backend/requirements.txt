@@ -5,6 +5,7 @@ openai>=3.0
 azure-data-tables>=12.7
 requests>=2.32
 pillow>=11.0
+pypdf>=5.1
 fastapi>=0.115
 uvicorn[standard]>=0.32
 python-dotenv>=1.0

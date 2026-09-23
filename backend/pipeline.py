@@ -66,12 +66,17 @@ def ensure_analyzers(only: list[str] | None = None) -> None:
 
 
 def parse_claims_history(pdf_path: pathlib.Path) -> list[dict[str, Any]]:
-    """Read the claims history table with pdftotext-style text extraction."""
+    """Read the claim references out of the claims history PDF.
+
+    Uses pypdf so this works the same on Windows, macOS and Linux. Shelling out to
+    pdftotext would silently return nothing on a Windows lab VM, and the claim frequency
+    indicator would then never fire.
+    """
     try:
-        import subprocess
-        text = subprocess.run(["pdftotext", str(pdf_path), "-"],
-                              capture_output=True, text=True, check=True).stdout
-    except Exception:  # noqa: BLE001 - history is optional
+        from pypdf import PdfReader
+        text = "\n".join(page.extract_text() or "" for page in PdfReader(str(pdf_path)).pages)
+    except Exception as exc:  # noqa: BLE001 - history is optional, but say so
+        print(f"  ! could not read {pdf_path.name}: {exc}")
         return []
     rows = re.findall(r"(CLM-\d{4}-\d+)", text)
     return [{"reference": r} for r in dict.fromkeys(rows)]
