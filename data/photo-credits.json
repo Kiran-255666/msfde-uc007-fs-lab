@@ -1,0 +1,87 @@
+{
+  "real_photos": [
+    {
+      "file": "20250123-174548-car-accident-from-west-in-dali-t.jpg",
+      "title": "20250123 174548 Car accident from West in Dali, Taichung.jpg",
+      "author": "Saimmx",
+      "licence": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File%3A20250123_174548_Car_accident_from_West_in_Dali%2C_Taichung.jpg"
+    },
+    {
+      "file": "20250123-174646-car-accident-from-east-in-dali-t.jpg",
+      "title": "20250123 174646 Car accident from East in Dali, Taichung.jpg",
+      "author": "Saimmx",
+      "licence": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File%3A20250123_174646_Car_accident_from_East_in_Dali%2C_Taichung.jpg"
+    },
+    {
+      "file": "car-accident-41823308.jpg",
+      "title": "Car Accident (41823308).jpeg",
+      "author": "Guillaume Champeau",
+      "licence": "CC BY 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File%3ACar_Accident_%2841823308%29.jpeg"
+    },
+    {
+      "file": "two-car-accident-temporarily-closes-rock-quarry-.jpg",
+      "title": "Two car accident temporarily closes Rock Quarry Road (15468891310).jpg",
+      "author": "KOMUnews",
+      "licence": "CC BY 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File%3ATwo_car_accident_temporarily_closes_Rock_Quarry_Road_%2815468891310%29.jpg"
+    },
+    {
+      "file": "2000-chrysler-cirrus-with-missing-bumper.jpg",
+      "title": "2000 Chrysler Cirrus with missing bumper.jpg",
+      "author": "Nyttend",
+      "licence": "Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File%3A2000_Chrysler_Cirrus_with_missing_bumper.jpg"
+    },
+    {
+      "file": "close-view-of-a-damaged-car-front-in-an-outdoor-.jpg",
+      "title": "Close view of a damaged car front in an outdoor setting during daylight hours near a road in a city area with visible wear and tear.jpg",
+      "author": "Shixart1985",
+      "licence": "CC BY 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File%3AClose_view_of_a_damaged_car_front_in_an_outdoor_setting_during_daylight_hours_near_a_road_in_a_city_area_with_visible_wear_and_tear.jpg"
+    },
+    {
+      "file": "old-blue-car-sits-in-junkyard-surrounded-by-othe.jpg",
+      "title": "Old blue car sits in junkyard surrounded by other vehicles in disrepair.jpg",
+      "author": "Shixart1985",
+      "licence": "CC BY 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File%3AOld_blue_car_sits_in_junkyard_surrounded_by_other_vehicles_in_disrepair.jpg"
+    }
+  ],
+  "generated_photos": {
+    "model": "gpt-image-1.5",
+    "note": "Synthetic images produced for this training lab. Not photographs of real incidents.",
+    "images": [
+      {
+        "file": "rear-bumper-dent-closeup.jpg",
+        "prompt": "Close-up of the rear bumper of a dark grey saloon car with a clear horizontal dent and scraped paint across the bumper, boot lid straight and undamaged."
+      },
+      {
+        "file": "rear-quarter-wide-dark-saloon.jpg",
+        "prompt": "Wide shot of the rear three-quarter view of the same dark grey saloon car in a car park, showing the dented rear bumper and an intact rear light cluster."
+      },
+      {
+        "file": "minor-door-scuff.jpg",
+        "prompt": "Close-up of a very light scuff and shallow paint scratch on the front passenger door of a silver hatchback. The damage is cosmetic and minor, no dents, panel perfectly straight."
+      },
+      {
+        "file": "minor-scuff-wide.jpg",
+        "prompt": "Wide side view of the same silver hatchback parked on a residential street, bodywork straight and clean apart from one small scuff on the front passenger door."
+      },
+      {
+        "file": "front-end-collision-silver.jpg",
+        "prompt": "Front end of a silver estate car after a collision: crumpled bonnet, cracked front bumper, broken left headlight, radiator grille pushed inward."
+      },
+      {
+        "file": "hail-damage-bonnet.jpg",
+        "prompt": "Bonnet and roof of a blue saloon car covered in many small round hail dents, photographed from a high angle so the dimples catch the light."
+      },
+      {
+        "file": "windscreen-crack.jpg",
+        "prompt": "Close-up through the windscreen of a car showing a long crack spreading from a stone chip on the passenger side of the glass."
+      }
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+# Your own environment - never commit these
+backend/.env
+.venv/
+__pycache__/
+*.pyc
+node_modules/
+dist/
+
+# Lab output
+out/
+*.log

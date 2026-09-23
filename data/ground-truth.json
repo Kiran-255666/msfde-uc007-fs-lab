@@ -1,0 +1,228 @@
+{
+  "finding_codes": {
+    "MISSING_DOCUMENT": "A document required for this claim type is absent",
+    "MISSING_FIELD": "A required field could not be extracted from the evidence",
+    "DATE_MISMATCH": "The date of loss differs between documents",
+    "VEHICLE_MISMATCH": "Vehicle identifiers differ between documents",
+    "DAMAGE_LOCATION_MISMATCH": "Described damage location contradicts other evidence",
+    "COVER_NOT_IN_FORCE": "Date of loss falls outside the policy period",
+    "EXCEEDS_AUTHORITY": "Repair cost exceeds the handler authority limit",
+    "ESTIMATE_EVIDENCE_MISMATCH": "Repair cost is not consistent with the photographic evidence",
+    "REPAIRER_ENHANCED_REVIEW": "Repairer is on the enhanced review list",
+    "CLAIM_FREQUENCY": "Claim frequency exceeds the referral threshold"
+  },
+  "claims": {
+    "CLM-2026-0431": {
+      "scenario": "complete_and_consistent",
+      "documents": [
+        "claim-form.pdf",
+        "policy-schedule.pdf",
+        "repair-estimate.pdf",
+        "customer-statement.pdf",
+        "police-report.pdf"
+      ],
+      "photos": [
+        {
+          "file": "photos/rear-bumper-dent-closeup.jpg",
+          "origin": "generated",
+          "caption": "Close-up of rear bumper damage"
+        },
+        {
+          "file": "photos/rear-quarter-wide-dark-saloon.jpg",
+          "origin": "generated",
+          "caption": "Rear three-quarter view"
+        }
+      ],
+      "facts": {
+        "claimant_name": "Daniel Okafor",
+        "policy_number": "CIP-MTR-884213",
+        "policy_effective_from": "2026-01-01",
+        "policy_effective_to": "2026-12-31",
+        "date_of_loss": "2026-08-14",
+        "loss_type": "Collision",
+        "damage_area": "Rear",
+        "vehicle": "2022 Toyota Camry SE",
+        "vin": "4T1C11AK8NU123456",
+        "plate": "IL-7742KD",
+        "repairer": "Riverside Auto Body",
+        "estimate_total": 2480.0,
+        "deductible": 500
+      },
+      "expected": {
+        "findings": [],
+        "recommendation": "proceed",
+        "notes": "Complete, internally consistent, within the handler authority limit."
+      }
+    },
+    "CLM-2026-0432": {
+      "scenario": "missing_evidence",
+      "documents": [
+        "claim-form.pdf",
+        "policy-schedule.pdf",
+        "repair-estimate.pdf"
+      ],
+      "photos": [],
+      "facts": {
+        "claimant_name": "Priya Raman",
+        "policy_number": "CIP-MTR-771904",
+        "policy_effective_from": "2026-03-01",
+        "policy_effective_to": "2027-02-28",
+        "date_of_loss": "2026-09-02",
+        "loss_type": "Theft and vandalism",
+        "damage_area": "Underbody",
+        "vehicle": "2019 Honda Civic LX",
+        "vin": "19XFC2F59KE201188",
+        "plate": "IL-3318QM",
+        "repairer": "Corwin Street Motors",
+        "estimate_total": 1860.0,
+        "deductible": 500
+      },
+      "expected": {
+        "findings": [
+          "MISSING_DOCUMENT",
+          "MISSING_DOCUMENT",
+          "MISSING_DOCUMENT"
+        ],
+        "missing_documents": [
+          "police_report",
+          "customer_statement",
+          "damage_photographs"
+        ],
+        "recommendation": "request_information",
+        "notes": "Theft claims require a crime reference within 5 days under CIP-CLM-200. No statement and no photographs were supplied."
+      }
+    },
+    "CLM-2026-0433": {
+      "scenario": "cross_document_inconsistency",
+      "documents": [
+        "claim-form.pdf",
+        "policy-schedule.pdf",
+        "repair-estimate.pdf",
+        "customer-statement.pdf",
+        "police-report.pdf"
+      ],
+      "photos": [
+        {
+          "file": "photos/front-end-collision-silver.jpg",
+          "origin": "generated",
+          "caption": "Front end damage"
+        },
+        {
+          "file": "photos/close-view-of-a-damaged-car-front-in-an-outdoor-.jpg",
+          "origin": "real",
+          "caption": "Close view of front damage"
+        }
+      ],
+      "facts": {
+        "claimant_name": "Marcus Bell",
+        "policy_number": "CIP-MTR-559312",
+        "policy_effective_from": "2026-02-15",
+        "policy_effective_to": "2027-02-14",
+        "date_of_loss": "2026-08-12",
+        "loss_type": "Collision",
+        "damage_area": "Front",
+        "vehicle": "2021 Ford Focus ST-Line",
+        "vin": "1FADP3K25JL227788",
+        "plate": "IL-9042BX",
+        "repairer": "Clear Lake Collision",
+        "estimate_total": 3950.0,
+        "deductible": 750
+      },
+      "expected": {
+        "findings": [
+          "DATE_MISMATCH",
+          "VEHICLE_MISMATCH",
+          "DAMAGE_LOCATION_MISMATCH"
+        ],
+        "recommendation": "refer",
+        "notes": "Loss date 2026-08-12 on the claim form against 2026-08-14 on the police report. VIN ends 7788 on the claim form and 7783 on the police report. The customer statement describes reversing damage to the rear while the estimate and photographs show front end collision damage."
+      }
+    },
+    "CLM-2026-0434": {
+      "scenario": "policy_exception",
+      "documents": [
+        "claim-form.pdf",
+        "policy-schedule.pdf",
+        "repair-estimate.pdf",
+        "customer-statement.pdf"
+      ],
+      "photos": [
+        {
+          "file": "photos/hail-damage-bonnet.jpg",
+          "origin": "generated",
+          "caption": "Hail dents across bonnet and roof"
+        }
+      ],
+      "facts": {
+        "claimant_name": "Sofia Almeida",
+        "policy_number": "CIP-MTR-903771",
+        "policy_effective_from": "2026-09-01",
+        "policy_effective_to": "2027-08-31",
+        "date_of_loss": "2026-08-28",
+        "loss_type": "Weather - hail",
+        "damage_area": "Roof and bonnet",
+        "vehicle": "2018 BMW 330i",
+        "vin": "WBA8E9C51JK612904",
+        "plate": "IL-5521TR",
+        "repairer": "Woodside Prestige Repairs",
+        "estimate_total": 6200.0,
+        "deductible": 1000
+      },
+      "expected": {
+        "findings": [
+          "COVER_NOT_IN_FORCE",
+          "EXCEEDS_AUTHORITY"
+        ],
+        "recommendation": "refer",
+        "notes": "Date of loss 2026-08-28 precedes the policy effective date of 2026-09-01, so cover was not in force. The estimate of 6,200 also exceeds the 5,000 handler authority limit. Coverage decisions sit with an authorised adjuster."
+      }
+    },
+    "CLM-2026-0435": {
+      "scenario": "fraud_indicators",
+      "documents": [
+        "claim-form.pdf",
+        "policy-schedule.pdf",
+        "repair-estimate.pdf",
+        "customer-statement.pdf",
+        "claims-history.pdf"
+      ],
+      "photos": [
+        {
+          "file": "photos/minor-door-scuff.jpg",
+          "origin": "generated",
+          "caption": "Damage to front passenger door"
+        },
+        {
+          "file": "photos/minor-scuff-wide.jpg",
+          "origin": "generated",
+          "caption": "Wide view of the passenger side"
+        }
+      ],
+      "facts": {
+        "claimant_name": "Victor Hale",
+        "policy_number": "CIP-MTR-612885",
+        "policy_effective_from": "2025-12-01",
+        "policy_effective_to": "2026-11-30",
+        "date_of_loss": "2026-09-05",
+        "loss_type": "Collision - unattended vehicle",
+        "damage_area": "Nearside front door",
+        "vehicle": "2020 Volkswagen Golf TSI",
+        "vin": "3VW5T7AU4LM049217",
+        "plate": "IL-8830LV",
+        "repairer": "Apex Collision Center",
+        "estimate_total": 6940.0,
+        "deductible": 250
+      },
+      "expected": {
+        "findings": [
+          "ESTIMATE_EVIDENCE_MISMATCH",
+          "EXCEEDS_AUTHORITY",
+          "REPAIRER_ENHANCED_REVIEW",
+          "CLAIM_FREQUENCY"
+        ],
+        "recommendation": "refer",
+        "notes": "The photographs show light cosmetic scuffing while the estimate of 6,940 covers door skin replacement, three panel blending and ADAS recalibration. The repairer is on the enhanced review list and this is the third claim in twelve months, all unattended-vehicle damage through the same repairer. Refer to the Special Investigations Unit; do not decline the claim in the workspace."
+      }
+    }
+  }
+}
