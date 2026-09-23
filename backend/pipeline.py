@@ -24,8 +24,22 @@ import validation
 import vision
 from content_understanding import ContentUnderstandingClient
 
-DATA_DIR = pathlib.Path(__file__).resolve().parents[2] / "data" / "claims"
-OUT_DIR = pathlib.Path(__file__).resolve().parents[2] / "out"
+def _find_repo_dir(name: str) -> pathlib.Path:
+    """Locate a top-level folder by walking up from this file.
+
+    The same code runs from the source tree (app/backend/) and from the participant
+    repository (backend/), so the depth is not fixed.
+    """
+    here = pathlib.Path(__file__).resolve()
+    for parent in here.parents:
+        candidate = parent / name
+        if candidate.exists():
+            return candidate
+    return here.parent / name
+
+
+DATA_DIR = _find_repo_dir("data") / "claims"
+OUT_DIR = _find_repo_dir("data").parent / "out"
 
 
 def _cu() -> ContentUnderstandingClient:
