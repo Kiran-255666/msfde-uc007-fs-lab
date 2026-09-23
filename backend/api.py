@@ -24,7 +24,18 @@ import config as cfg
 import pipeline
 import store
 
-DATA_DIR = pathlib.Path(__file__).resolve().parents[2] / "data" / "claims"
+def _find_repo_dir(name: str) -> pathlib.Path:
+    """Locate a top-level folder by walking up: the source tree and the participant
+    repository nest this file at different depths."""
+    here = pathlib.Path(__file__).resolve()
+    for parent in here.parents:
+        candidate = parent / name
+        if candidate.exists():
+            return candidate
+    return here.parent / name
+
+
+DATA_DIR = _find_repo_dir("data") / "claims"
 
 app = FastAPI(title="Contoso Claims Workspace", version="1.0")
 app.add_middleware(
@@ -60,6 +71,8 @@ def health() -> dict[str, Any]:
 
 @app.get("/api/claims")
 def list_claims() -> dict[str, Any]:
+    if not DATA_DIR.is_dir():
+        raise HTTPException(500, f"claim evidence folder not found at {DATA_DIR}")
     stored = {c["claim_id"]: c for c in store.list_claims()}
     claims = []
     for folder in sorted(d for d in DATA_DIR.iterdir() if d.is_dir()):
