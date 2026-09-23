@@ -71,6 +71,7 @@ The workspace never approves, declines or pays a claim (CIP-CLM-200 section 5.2)
 | `reference/policies/` | The four Contoso policy documents. **Read these first** |
 | `data/claims/` | The five sample claims |
 | `eval/evaluate.py` | Scores your pipeline against the ground truth |
+| `solutions/` | Reference solutions — try it yourself first, then compare |
 
 ## Commands
 
@@ -92,6 +93,7 @@ python evaluate.py                           # score against the ground truth
 
 ## Requirements
 
-- A Windows lab VM with Python 3.12, Node, the Azure CLI and VS Code (the lab image has these).
+- A Windows lab VM with Python 3.12, the Azure CLI and VS Code (the lab image has these).
+  **Node is not on the image** — `setup-windows.ps1` installs it for you.
 - An account in the lab participant group, so you can create agents and analyzers in the
   shared backend.
