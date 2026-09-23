@@ -63,8 +63,9 @@ cd C:\uc007
 .\setup-windows.ps1
 ```
 
-It installs anything missing (the lab image already has Python 3.12, Node, the Azure CLI and
-VS Code), creates the Python environment, installs the frontend packages and sets UTF-8 output.
+It installs anything missing — the lab image has Python 3.12, the Azure CLI and VS Code, but
+**not Node**, so the script installs that — then creates the Python environment, installs the
+frontend packages with `npm install`, and sets UTF-8 output. Expect it to take a few minutes.
 
 **3.** Copy `backend\.env.example` to `backend\.env`, paste in the values from the **lab
 environment handout**, and set your alias to your lab username:
@@ -220,6 +221,10 @@ npm run dev
 ```
 
 Open http://localhost:5173.
+
+> **No `npm install` needed** — `setup-windows.ps1` installed the frontend packages in Part 0.
+> If `npm run dev` complains that `vite` is not recognised, the install did not happen on this
+> copy of the folder; run `npm install` once in `frontend` and start it again.
 
 Work through a claim as a handler would: read the summary, open a finding and check the
 evidence chips against the source PDF, look at the photographs, expand the extracted data and
