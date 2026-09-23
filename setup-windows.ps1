@@ -43,6 +43,20 @@ if (-not $SkipInstalls) {
     # Pick up PATH changes made by the installers
     $env:Path = [System.Environment]::GetEnvironmentVariable('Path', 'Machine') + ';' +
                 [System.Environment]::GetEnvironmentVariable('Path', 'User')
+
+    # The lab image ships Python, the Azure CLI and VS Code, but NOT Node. winget can fail in
+    # some session contexts, so fall back to the official MSI.
+    if (-not (Test-Command node)) {
+        Write-Host '  installing Node from the official MSI ...'
+        $msi = "$env:TEMP\node-lts.msi"
+        Invoke-WebRequest -Uri 'https://nodejs.org/dist/v22.11.0/node-v22.11.0-x64.msi' -OutFile $msi -UseBasicParsing
+        Start-Process msiexec.exe -ArgumentList "/i `"$msi`" /qn /norestart" -Wait
+        $env:Path = [System.Environment]::GetEnvironmentVariable('Path', 'Machine') + ';' +
+                    [System.Environment]::GetEnvironmentVariable('Path', 'User')
+    }
+    if (-not (Test-Command node)) {
+        throw 'Node is still not on PATH. Open a new PowerShell window and re-run this script.'
+    }
 }
 
 Write-Step 'Creating the Python environment'
