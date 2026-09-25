@@ -72,6 +72,7 @@ The workspace never approves, declines or pays a claim (CIP-CLM-200 section 5.2)
 | `data/claims/` | The five sample claims |
 | `eval/evaluate.py` | Scores your pipeline against the ground truth |
 | `solutions/` | Reference solutions — try it yourself first, then compare |
+| `extensions/` | Seven deeper challenges for when the core lab is done |
 
 ## Commands
 
@@ -90,6 +91,15 @@ npm run dev                                  # the workspace on http://localhost
 cd ..\eval
 python evaluate.py                           # score against the ground truth
 ```
+
+## Finished the lab?
+
+The core lab gets you a working claims workspace. **[extensions/](extensions/README.md)** takes it
+from *working* to *defensible* — seven independent challenges covering new evidence types,
+cross-claim patterns, subtle fraud, the verification queue, cost per claim and book-level metrics.
+Each has an acceptance test, so you finish with evidence rather than an assertion.
+
+Nobody is expected to do all seven. Pick the ones you would want to be asked about.
 
 ## Requirements
 

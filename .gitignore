@@ -9,3 +9,6 @@ dist/
 # Lab output
 out/
 *.log
+
+# macOS
+.DS_Store
